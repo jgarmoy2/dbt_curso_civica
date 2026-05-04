@@ -17,4 +17,4 @@ select
     fecha_alta_sistema
 from {{ source('google_sheets', 'users') }}
 
-{% endsnapshot %%}
+{% endsnapshot %}
