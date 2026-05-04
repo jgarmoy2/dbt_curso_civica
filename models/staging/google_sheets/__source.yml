@@ -4,20 +4,20 @@ sources:
 
   - name: google_sheets # name of the source 
     schema: google_sheets # this is the schema our raw data lives in
-    database: DB37_BRONZE_DB # this is the name of our database
+    database: db37_bronze_db # this is the name of our database
 
     quoting:
       database: false
       schema: false
       identifier: false
-    config:
-      freshness:
-        warn_after: {count: 24, period: hour}
-        error_after: {count: 48, period: hour}
-      loaded_at_field: _fivetran_synced
 
     tables:
       - name: budget
+        config:
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+          loaded_at_field: _fivetran_synced
         columns:
           - name: _row
             data_type: varchar
@@ -29,3 +29,19 @@ sources:
             data_type: varchar
           - name: _fivetran_synced
             data_type: varchar
+
+      - name: users
+        config: 
+          freshness: 
+            warn_after: 
+              count: 7
+              period: day
+            error_after: 
+              count: 10
+              period: day
+          loaded_at_field: fecha_alta_sistema
+        columns:
+          - name: nombre
+          - name: dni
+          - name: email
+          - name: fecha_alta_sistema
