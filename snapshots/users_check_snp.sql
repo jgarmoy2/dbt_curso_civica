@@ -5,8 +5,7 @@
         target_schema = 'snapshots',
         unique_key = 'dni',
         strategy = 'check',
-        check_cols = ['nombre', 'email'],
-        hard_delete = 'ignore'
+        check_cols = ['nombre', 'email']
     )
 }}
 
