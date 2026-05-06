@@ -13,7 +13,7 @@ models:
         description: "Primary key"
         data_tests:
           - unique
-          - not_null
+          - not_null 
           
       - name: product_id
         data_type: varchar
